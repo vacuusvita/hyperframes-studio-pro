@@ -1,0 +1,10 @@
+node_modules/
+out/
+*.part.mp4
+Unselected files/
+teaching_extract/
+*.jpg
+*.mp4
+!assets/teaching-reference.mp4
+!templates/*.html
+

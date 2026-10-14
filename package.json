@@ -1,0 +1,25 @@
+{
+  "name": "hyperframes-studio-pro",
+  "version": "2.0.0",
+  "description": "MEGA motion graphics & video editing skill using Hyperframes - launch, shorts, high-energy, default, B-roll, object separation, sound effects, educational tutorial, raw bruto.mov to skill, edit existing with NLE verbs. Merges cskwork, JakeB-5, Barty-Bart, heygen-com hyperframes + teaching video.",
+  "main": "SKILL.md",
+  "keywords": ["hyperframes", "motion-graphics", "video-editing", "claude-code", "codex", "cursor", "launch-video", "shorts", "b-roll", "educational"],
+  "author": "",
+  "license": "Apache-2.0",
+  "bin": {
+    "hyperframes-studio": "./scripts/init.sh"
+  },
+  "scripts": {
+    "init": "./scripts/init.sh",
+    "render": "./scripts/render.sh",
+    "edit": "./scripts/edit.sh",
+    "doctor": "npx hyperframes doctor",
+    "preview": "npx hyperframes preview",
+    "lint": "npx hyperframes lint",
+    "check": "npx hyperframes check"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "hyperframes": ">=0.8.0"
+  }
+}

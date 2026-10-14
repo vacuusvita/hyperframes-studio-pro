@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Launch Template</title>
+<style>
+body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#0D1B2A;font-family:Inter,system-ui,sans-serif}
+#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:#0D1B2A}
+.clip{position:absolute;inset:0;width:1920px;height:1080px}
+.s1{display:flex;flex-direction:column;justify-content:center;padding:120px 160px;gap:24px}
+.s1-title{font:900 84px/0.95 Inter;color:#fff;letter-spacing:-0.03em}
+.s1-sub{font:400 28px/1.4 Inter;color:#9FB3C8;max-width:720px}
+.s2{display:flex;justify-content:center;align-items:center;padding:60px}
+.card{width:900px;height:600px;background:#fff;border-radius:24px;box-shadow:0 20px 80px rgba(0,0,0,0.4);overflow:hidden}
+.grain{position:absolute;inset:0;opacity:0.06;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");pointer-events:none}
+.progress{position:absolute;bottom:0;left:0;height:4px;background:#00FFC2;width:0%}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head><body>
+<div id="root" data-composition-id="launch-v1" data-width="1920" data-height="1080" data-duration="30" data-composition-variables='{"headline":"Launch videos, written as code"}'>
+  <div class="clip" data-start="0" data-duration="3" data-track-index="1" id="scene1">
+    <div class="s1"><div class="s1-title" id="t1">Launch videos,<br>written as code.</div><div class="s1-sub" id="sub1">One install. Every frame is a function of t.</div></div>
+  </div>
+  <div class="clip" data-start="2.5" data-duration="4" data-track-index="1" id="scene2">
+    <div class="s2"><div class="card" id="card1"><div style="padding:24px;font:600 16px monospace;background:#0D1B2A;color:#00FFC2">$ npx skills add hyperframes-studio-pro</div><div style="padding:32px;font:500 18px/1.5 monospace">GSAP timeline paused + data-* timing<br>deterministic render via Hyperframes</div></div></div>
+  </div>
+  <div class="clip" data-start="6" data-duration="4" data-track-index="1" id="scene3">
+    <div class="s1"><div class="s1-title" id="t3">Rendered frame by frame.</div><div class="s1-sub">720/720 FRAMES ✓ out/video.mp4 · 1920×1080 · 60fps</div></div>
+  </div>
+  <div class="clip" data-start="9" data-duration="21" data-track-index="1" id="scene4">
+    <div class="s1" style="align-items:center;text-align:center"><div style="font:900 48px Inter;color:#00FFC2">hyperframes-studio-pro</div><div style="font:400 24px Inter;color:#fff;margin-top:12px">npx skills add heygen-com/hyperframes</div></div>
+  </div>
+  <div class="clip grain" data-start="0" data-duration="30" data-track-index="10"></div>
+  <div class="clip" data-start="0" data-duration="30" data-track-index="11" style="pointer-events:none"><div class="progress" id="progress"></div></div>
+</div>
+<script>
+window.__timelines={};
+const tl=gsap.timeline({paused:true});
+tl.from("#t1",{x:-40,opacity:0,duration:0.6,ease:"power3.out"},0.2);
+tl.from("#sub1",{y:15,opacity:0,duration:0.4,ease:"power2.out"},0.5);
+tl.to("#scene1",{filter:"blur(8px)",scale:1.03,opacity:0,duration:0.35,ease:"power2.inOut"},2.2);
+tl.fromTo("#scene2",{filter:"blur(8px)",scale:0.97,opacity:0},{filter:"blur(0px)",scale:1,opacity:1,duration:0.35,ease:"power2.inOut"},2.28);
+tl.from("#card1",{y:30,opacity:0,scale:0.96,duration:0.5,ease:"back.out(1.4)"},2.5);
+tl.to("#scene2",{filter:"blur(8px)",scale:1.03,opacity:0,duration:0.35},6);
+tl.fromTo("#scene3",{filter:"blur(8px)",scale:0.97,opacity:0},{filter:"blur(0px)",scale:1,opacity:1,duration:0.35},6.08);
+tl.from("#scene3 .s1-title",{y:20,opacity:0,duration:0.5,ease:"power3.out"},6.2);
+tl.to("#scene3",{opacity:0,y:-20,duration:0.3},8.7);
+tl.from("#scene4 div",{y:20,opacity:0,duration:0.5,stagger:0.08,ease:"power3.out"},9);
+tl.to("#progress",{width:"100%",duration:30,ease:"none"},0);
+window.__timelines["launch-v1"]=tl;
+</script></body></html>
