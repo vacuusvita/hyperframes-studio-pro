@@ -1,0 +1,286 @@
+<div data-composition-id="presentation" data-width="1920" data-height="1080" data-duration="35">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@500;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  #presentation-root{
+    width:1920px;height:1080px;
+    background:#0D1B2A;
+    font-family:Inter,sans-serif;
+    overflow:hidden;
+    position:relative;
+    color:#fff;
+  }
+  #presentation-root::before{
+    content:'';
+    position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,0.08) 1.2px, transparent 1.2px);
+    background-size:36px 36px;
+    opacity:0.4;
+    pointer-events:none;
+  }
+  .clip{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden}
+  .center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+  .grain{position:absolute;inset:0;opacity:0.06;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none}
+  .label-mono{font:700 13px/1 JetBrains Mono,monospace;letter-spacing:0.12em;text-transform:uppercase;color:#00FFC2}
+  .label-blue{font:700 13px/1 JetBrains Mono,monospace;letter-spacing:0.12em;text-transform:uppercase;color:#3B82F6}
+  .title-huge{font:900 120px/0.9 Inter;letter-spacing:-0.04em;color:#fff}
+  .title-big{font:900 72px/0.95 Inter;letter-spacing:-0.03em;color:#fff}
+  .sub{font:400 26px/1.4 Inter;color:#9FB3C8;max-width:800px}
+  .code{font:500 16px/1.5 JetBrains Mono,monospace;background:#111D2F;border:1px solid #1E2F4A;border-radius:12px;padding:20px 24px;color:#C7D5E8;box-shadow:0 10px 40px rgba(0,0,0,0.3)}
+  .code b{color:#00FFC2}
+  .code .tag{color:#3B82F6}
+  .card-white{background:#fff;border-radius:20px;box-shadow:0 16px 48px rgba(0,0,0,0.2);border:1px solid #F0F0F0;color:#0E1116}
+  .chat{background:#fff;border-radius:18px;padding:20px 24px;box-shadow:0 12px 40px rgba(0,0,0,0.15);max-width:760px;border:1px solid #EEF0F2;position:relative}
+  .chat .you{font:700 11px JetBrains Mono,monospace;color:#3B82F6;display:flex;align-items:center;gap:6px;margin-bottom:8px;letter-spacing:0.08em}
+  .chat .you::before{content:'';width:7px;height:7px;background:#3B82F6;border-radius:50%;display:inline-block}
+  .chat .text{font:600 20px/1.35 Inter;color:#0E1116}
+  .chat .arrow-blue{position:absolute;right:18px;bottom:18px;width:36px;height:36px;background:#3B82F6;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px}
+  .pill{background:#fff;border-radius:999px;padding:10px 20px;box-shadow:0 4px 16px rgba(0,0,0,0.08);font:700 15px Inter;color:#0E1116;border:1px solid #EEF0F2;display:inline-flex;align-items:center;gap:8px}
+  .pill-blue{background:#3B82F6;color:#fff;border-color:#3B82F6;box-shadow:0 6px 20px rgba(59,130,246,0.35)}
+  .pill-cyan{background:#00FFC2;color:#0D1B2A;border-color:#00FFC2}
+  .icon-box{width:84px;height:84px;border-radius:20px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,0.12);display:flex;align-items:center;justify-content:center;font-size:36px}
+  .timeline-bar{height:6px;background:#1E2F4A;border-radius:999px;overflow:hidden;position:relative}
+  .timeline-fill{height:100%;background:linear-gradient(90deg,#00FFC2,#3B82F6);width:0%}
+  .grid-dot{position:absolute;inset:0;background-image:radial-gradient(#D0D0D0 1.5px, transparent 1.5px);background-size:40px 40px;opacity:0.25}
+  .appstore{width:720px;height:380px;background:#fff;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.18);overflow:hidden;border:1px solid #E5E7EB}
+  .appstore-h{height:38px;background:#F9FAFB;display:flex;align-items:center;padding:0 14px;gap:6px;border-bottom:1px solid #F0F0F0}
+  .dot{width:10px;height:10px;border-radius:50%;background:#E5E7EB}
+  .install{font:600 11px Inter;color:#3B82F6;border:1px solid #3B82F6;border-radius:999px;padding:4px 10px;background:#fff}
+  .progress{position:absolute;bottom:0;left:0;height:4px;background:linear-gradient(90deg,#00FFC2,#3B82F6);width:0%}
+</style>
+
+<div id="presentation-root">
+  <!-- SCENE 1: HOOK 0-3s -->
+  <div class="clip" data-start="0" data-duration="3.5" data-track-index="1" id="s1">
+    <div class="center" style="text-align:center;width:1200px">
+      <div class="label-mono" id="s1-label">HYPERFRAMES • HTML IS VIDEO</div>
+      <div class="title-huge" id="s1-title" style="margin-top:20px">Vídeos<br>como código.</div>
+      <div class="sub" id="s1-sub" style="margin:24px auto 0">Escreva HTML. Renderize MP4. Edite com prompts. 100% profissional.</div>
+      <div style="margin-top:32px;display:flex;gap:12px;justify-content:center" id="s1-pills">
+        <div class="pill-cyan pill">HTML</div>
+        <div class="pill" style="background:#111D2F;color:#9FB3C8;border-color:#1E2F4A">GSAP</div>
+        <div class="pill" style="background:#111D2F;color:#9FB3C8;border-color:#1E2F4A">FFmpeg</div>
+        <div class="pill" style="background:#111D2F;color:#9FB3C8;border-color:#1E2F4A">Chromium</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 2: OLD WAY 3-7s -->
+  <div class="clip" data-start="3.2" data-duration="4" data-track-index="1" id="s2">
+    <div class="center" style="width:1400px;display:flex;gap:60px;align-items:center">
+      <div style="flex:1">
+        <div class="label-mono" id="s2-label">O JEITO ANTIGO</div>
+        <div class="title-big" id="s2-title" style="margin-top:16px;font-size:64px">Timeline manual.<br><span style="color:#5A6D8A;text-decoration:line-through;text-decoration-color:#FF4D4D;text-decoration-thickness:6px">Keyframe a keyframe.</span></div>
+        <div class="sub" id="s2-sub" style="margin-top:20px">After Effects, Premiere, horas arrastando. Não escala. Não é código.</div>
+      </div>
+      <div class="card-white" id="s2-card" style="width:520px;height:340px;padding:20px;position:relative;overflow:hidden">
+        <div style="display:flex;gap:6px;margin-bottom:16px"><div class="dot" style="background:#FF5F56"></div><div class="dot" style="background:#FFBD2E"></div><div class="dot" style="background:#27C93F"></div><span style="margin-left:8px;font:600 12px Inter;color:#8C8F96">Timeline - After Effects</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="height:32px;background:#F3F4F6;border-radius:8px;display:flex;align-items:center;padding:0 12px;gap:8px"><div style="width:80px;height:8px;background:#D1D5DB;border-radius:4px"></div><div style="flex:1;height:6px;background:#E5E7EB;border-radius:3px"></div></div>
+          <div style="height:32px;background:#EEF2FF;border-radius:8px;display:flex;align-items:center;padding:0 12px;gap:8px;border:1px solid #C7D2FE"><div style="width:80px;height:8px;background:#3B82F6;border-radius:4px"></div><div style="flex:1;display:flex;gap:4px"><div style="width:20px;height:20px;background:#3B82F6;border-radius:4px"></div><div style="width:60px;height:6px;background:#93C5FD;border-radius:3px;margin-top:7px"></div></div></div>
+          <div style="height:32px;background:#F3F4F6;border-radius:8px;display:flex;align-items:center;padding:0 12px;gap:8px"><div style="width:80px;height:8px;background:#D1D5DB;border-radius:4px"></div><div style="flex:1;height:6px;background:#E5E7EB;border-radius:3px"></div></div>
+          <div style="height:32px;background:#F3F4F6;border-radius:8px;display:flex;align-items:center;padding:0 12px;gap:8px"><div style="width:80px;height:8px;background:#D1D5DB;border-radius:4px"></div><div style="flex:1;height:6px;background:#E5E7EB;border-radius:3px"></div></div>
+        </div>
+        <div style="position:absolute;inset:0;background:rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center" id="s2-cross"><div style="font:900 80px Inter;color:#FF4D4D;transform:rotate(-12deg)">✕</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 3: NEW WAY - LINGUAGEM NATURAL 7-12s -->
+  <div class="clip" data-start="7" data-duration="5.5" data-track-index="1" id="s3">
+    <div class="center" style="width:1400px;text-align:center">
+      <div class="label-blue" id="s3-label">↓ O NOVO JEITO • EM LINGUAGEM NATURAL</div>
+      <div class="title-big" id="s3-title" style="margin-top:16px;font-size:64px">Edite vídeo<br>como conversa.</div>
+      <div style="margin-top:28px;display:flex;flex-direction:column;gap:14px;align-items:center" id="s3-chats">
+        <div class="chat" style="width:760px;text-align:left"><div class="you">VOCÊ</div><div class="text">edita esse vídeo, corta intro, troca logo, deixa mais rápido</div><div class="arrow-blue">↑</div></div>
+        <div class="chat" style="width:760px;text-align:left"><div class="you">VOCÊ</div><div class="text">intro clip duration = 3s; swap logo for assets/logo.svg</div><div class="arrow-blue">↑</div></div>
+      </div>
+      <div style="margin-top:20px;display:flex;gap:10px;justify-content:center" id="s3-pills">
+        <div class="pill-blue pill">abrir timeline</div>
+        <div class="pill pill">mexer em keyframe</div>
+        <div class="pill pill">editar vídeo</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 4: HYPERFRAMES ENGINE 12-18s -->
+  <div class="clip" data-start="12.2" data-duration="6" data-track-index="1" id="s4">
+    <div class="center" style="width:1500px;display:flex;gap:50px;align-items:center">
+      <div style="flex:1">
+        <div class="label-mono" id="s4-label">HYPERFRAMES ENGINE • OFICIAL</div>
+        <div class="title-big" id="s4-title" style="margin-top:16px;font-size:58px">HTML puro.<br>GSAP pausado.<br>Render determinístico.</div>
+        <div class="sub" id="s4-sub" style="margin-top:16px">Mesmo t = mesmos pixels. Sempre. Em qualquer máquina.</div>
+        <div style="margin-top:20px;display:flex;gap:10px" id="s4-stack">
+          <div class="pill-cyan pill">data-* timing</div>
+          <div class="pill" style="background:#111D2F;color:#9FB3C8;border-color:#1E2F4A">paused:true</div>
+          <div class="pill" style="background:#111D2F;color:#9FB3C8;border-color:#1E2F4A">window.__timelines</div>
+        </div>
+      </div>
+      <div style="width:680px" id="s4-code">
+        <div class="code" style="font-size:14px;line-height:1.6">
+          <span class="tag">&lt;div</span> <b>data-composition-id</b>="intro"<br>
+          &nbsp;&nbsp;<b>data-width</b>="1920" <b>data-height</b>="1080"<br>
+          &nbsp;&nbsp;<b>data-duration</b>="35"&gt;<br><br>
+          &nbsp;&nbsp;<span class="tag">&lt;div</span> <b>class</b>="clip"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<b>data-start</b>="0" <b>data-duration</b>="3"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<b>data-track-index</b>="1"&gt;...<span class="tag">&lt;/div&gt;</span><br><br>
+          <span class="tag">&lt;script&gt;</span><br>
+          &nbsp;&nbsp;<b>const tl</b> = gsap.timeline({<b>paused:true</b>});<br>
+          &nbsp;&nbsp;tl.from(<b>"#title"</b>, {<b>x:-40, opacity:0</b>});<br>
+          &nbsp;&nbsp;<b>window.__timelines["intro"]</b> = tl;<br>
+          <span class="tag">&lt;/script&gt;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 5: HOW IT WORKS 18-24s -->
+  <div class="clip" data-start="18" data-duration="6" data-track-index="1" id="s5">
+    <div class="center" style="width:1500px;text-align:center">
+      <div class="label-mono" id="s5-label">COMO FUNCIONA • 3 PASSOS</div>
+      <div style="margin-top:24px;display:flex;gap:20px;justify-content:center" id="s5-steps">
+        <div class="card-white" style="width:380px;padding:28px;text-align:left">
+          <div class="icon-box" style="background:#0D1B2A;color:#00FFC2">1</div>
+          <div style="margin-top:16px;font:700 22px Inter">Escreva HTML</div>
+          <div style="margin-top:8px;font:400 15px/1.5 Inter;color:#6B7280">Crie composição com clips + GSAP. Use templates prontos.</div>
+          <div class="code" style="margin-top:16px;font-size:11px;padding:12px">npx hyperframes init my-video --example warm-grain</div>
+        </div>
+        <div class="card-white" style="width:380px;padding:28px;text-align:left">
+          <div class="icon-box" style="background:#3B82F6;color:#fff">2</div>
+          <div style="margin-top:16px;font:700 22px Inter">Preview Studio</div>
+          <div style="margin-top:8px;font:400 15px/1.5 Inter;color:#6B7280">Timeline visual + Design Panel + clipboard contexto espacial.</div>
+          <div class="code" style="margin-top:16px;font-size:11px;padding:12px">npx hyperframes preview<br>npx hyperframes lint + check</div>
+        </div>
+        <div class="card-white" style="width:380px;padding:28px;text-align:left;border:2px solid #00FFC2">
+          <div class="icon-box" style="background:#00FFC2;color:#0D1B2A">3</div>
+          <div style="margin-top:16px;font:700 22px Inter">Render MP4</div>
+          <div style="margin-top:8px;font:400 15px/1.5 Inter;color:#6B7280">Chromium frame-by-frame + FFmpeg. Determinístico.</div>
+          <div class="code" style="margin-top:16px;font-size:11px;padding:12px;background:#0D1B2A;color:#00FFC2">npx hyperframes render<br>--output out/video.mp4 --fps 60</div>
+        </div>
+      </div>
+      <div style="margin-top:24px" id="s5-bar">
+        <div class="timeline-bar" style="width:800px;margin:0 auto"><div class="timeline-fill" id="timeline-fill"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 6: EDIT VERBS 24-30s -->
+  <div class="clip" data-start="24" data-duration="6" data-track-index="1" id="s6">
+    <div class="center" style="width:1600px;display:flex;gap:50px;align-items:center">
+      <div style="flex:1">
+        <div class="label-blue" id="s6-label">↓ EDIÇÃO PROFISSIONAL • VERBOS NLE</div>
+        <div class="title-big" id="s6-title" style="margin-top:12px;font-size:54px">Valor absoluto.<br>Uma coisa por vez.</div>
+        <div class="sub" id="s6-sub" style="margin-top:12px">Mapa editor → HTML. Edita atributo mínimo. Sem reescrever tudo.</div>
+        <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:8px" id="s6-pills">
+          <div class="pill-blue pill">Move → data-start</div>
+          <div class="pill pill">Trim → data-duration</div>
+          <div class="pill pill">Swap → src</div>
+          <div class="pill pill">Retime → data-duration + GSAP</div>
+          <div class="pill pill">Restack → track-index</div>
+          <div class="pill pill">Level → data-volume</div>
+        </div>
+      </div>
+      <div style="width:720px;display:flex;flex-direction:column;gap:12px" id="s6-examples">
+        <div class="chat" style="padding:14px 18px"><div class="you">EDIT QUE LANDA EM 1 PASS</div><div class="text" style="font-size:15px">intro clip duration = 3s; leave animation alone</div></div>
+        <div class="chat" style="padding:14px 18px"><div class="you">EDIT QUE LANDA</div><div class="text" style="font-size:15px">swap logo for assets/logo-2025.svg keep animation</div></div>
+        <div class="chat" style="padding:14px 18px"><div class="you">EDIT QUE LANDA</div><div class="text" style="font-size:15px">title copy: "Ship faster." - exact text</div></div>
+        <div class="chat" style="padding:14px 18px;border:1px solid #FF4D4D"><div class="you" style="color:#FF4D4D">❌ NÃO FUNCIONA</div><div class="text" style="font-size:14px;color:#6B7280">tighten up opening / use new logo / stretch scene</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 7: CTA 30-35s -->
+  <div class="clip" data-start="30" data-duration="5" data-track-index="1" id="s7">
+    <div class="center" style="text-align:center;width:1200px">
+      <div class="title-big" id="s7-title" style="font-size:64px">hyperframes-studio-pro</div>
+      <div class="sub" id="s7-sub" style="margin:16px auto 0;font-size:22px">MEGA skill: launch + shorts + high-energy + default + B-roll + separation + educational + raw-to-skill + edit</div>
+      <div class="code" id="s7-code" style="margin:28px auto 0;width:760px;text-align:left;font-size:15px;background:#111D2F">
+        <span style="color:#5A6D8A">$</span> npx skills add heygen-com/hyperframes<br>
+        <span style="color:#5A6D8A">$</span> npx skills add <b style="color:#00FFC2">vacuusvita/hyperframes-studio-pro</b><br><br>
+        <span style="color:#5A6D8A"># qualquer agent: Claude Code, Codex, Cursor, Gemini</span><br>
+        <span style="color:#3B82F6">/hyperframes</span> Make a launch video 30s 1920x1080 blur crossfade
+      </div>
+      <div style="margin-top:20px;display:flex;gap:10px;justify-content:center" id="s7-agents">
+        <div class="pill" style="background:#111D2F;color:#9FB3C8;border-color:#1E2F4A">Claude Code</div>
+        <div class="pill" style="background:#111D2F;color:#9FB3C8;border-color:#1E2F4A">Codex</div>
+        <div class="pill" style="background:#111D2F;color:#9FB3C8;border-color:#1E2F4A">Cursor</div>
+        <div class="pill" style="background:#111D2F;color:#9FB3C8;border-color:#1E2F4A">Gemini CLI</div>
+        <div class="pill-cyan pill">+ GitHub → App Store → IA</div>
+      </div>
+      <div style="margin-top:20px;font:500 13px JetBrains Mono,monospace;color:#5A6D8A" id="s7-url">github.com/vacuusvita/hyperframes-studio-pro • 35s • 1920x1080 • 60fps • feito com a própria skill</div>
+    </div>
+  </div>
+
+  <div id="grain" class="grain clip" data-start="0" data-duration="35" data-track-index="10"></div>
+  <div id="progress-track" class="clip" data-start="0" data-duration="35" data-track-index="11" style="pointer-events:none"><div class="progress" id="progress"></div></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+
+// S1 0-3.5
+tl.from("#s1-label",{y:12,opacity:0,duration:0.4,ease:"power2.out"},0.2);
+tl.from("#s1-title",{y:40,opacity:0,duration:0.7,ease:"power3.out"},0.4);
+tl.from("#s1-sub",{y:20,opacity:0,duration:0.5,ease:"power3.out"},0.7);
+tl.from("#s1-pills .pill",{y:16,opacity:0,duration:0.4,stagger:0.06,ease:"back.out(1.4)"},0.9);
+tl.to("#s1",{filter:"blur(10px)",scale:1.05,opacity:0,duration:0.45,ease:"power2.inOut"},3.0);
+
+// S2 3.2-7.2
+tl.fromTo("#s2",{filter:"blur(12px)",scale:0.96,opacity:0},{filter:"blur(0px)",scale:1,opacity:1,duration:0.45,ease:"power2.out"},3.2);
+tl.from("#s2-label",{x:-20,opacity:0,duration:0.4},3.4);
+tl.from("#s2-title",{x:-30,opacity:0,duration:0.6,ease:"power3.out"},3.6);
+tl.from("#s2-sub",{x:-20,opacity:0,duration:0.4},3.9);
+tl.from("#s2-card",{x:30,opacity:0,scale:0.95,duration:0.6,ease:"back.out(1.4)"},4.0);
+tl.from("#s2-cross",{scale:0,opacity:0,duration:0.4,ease:"back.out(1.7)"},4.4);
+tl.to("#s2",{filter:"blur(10px)",scale:1.05,opacity:0,duration:0.4},6.7);
+
+// S3 7-12.5
+tl.fromTo("#s3",{filter:"blur(12px)",scale:0.96,opacity:0},{filter:"blur(0px)",scale:1,opacity:1,duration:0.45},7.0);
+tl.from("#s3-label",{y:12,opacity:0,duration:0.3},7.2);
+tl.from("#s3-title",{y:30,opacity:0,duration:0.6,ease:"power3.out"},7.4);
+tl.from("#s3-chats .chat",{y:24,opacity:0,duration:0.5,stagger:0.12,ease:"power3.out"},7.8);
+tl.from("#s3-pills .pill",{y:16,opacity:0,scale:0.9,duration:0.4,stagger:0.06,ease:"back.out(1.4)"},8.4);
+tl.to("#s3",{filter:"blur(10px)",y:-20,opacity:0,duration:0.4},12.0);
+
+// S4 12.2-18.2
+tl.fromTo("#s4",{filter:"blur(12px)",scale:0.96,opacity:0},{filter:"blur(0px)",scale:1,opacity:1,duration:0.45},12.2);
+tl.from("#s4-label",{x:-20,opacity:0,duration:0.4},12.4);
+tl.from("#s4-title",{x:-30,opacity:0,duration:0.6,ease:"power3.out"},12.6);
+tl.from("#s4-sub",{x:-20,opacity:0,duration:0.4},13.0);
+tl.from("#s4-stack .pill",{y:12,opacity:0,duration:0.3,stagger:0.05},13.2);
+tl.from("#s4-code",{x:30,opacity:0,scale:0.96,duration:0.6,ease:"power3.out"},13.0);
+tl.to("#s4",{filter:"blur(10px)",scale:1.05,opacity:0,duration:0.4},17.7);
+
+// S5 18-24
+tl.fromTo("#s5",{filter:"blur(12px)",scale:0.96,opacity:0},{filter:"blur(0px)",scale:1,opacity:1,duration:0.45},18.0);
+tl.from("#s5-label",{y:12,opacity:0,duration:0.3},18.2);
+tl.from("#s5-steps .card-white",{y:30,opacity:0,duration:0.6,stagger:0.12,ease:"power3.out"},18.4);
+tl.from("#s5-bar",{opacity:0,duration:0.3},19.2);
+tl.to("#timeline-fill",{width:"100%",duration:5,ease:"none"},19.3);
+tl.to("#s5",{filter:"blur(10px)",scale:1.05,opacity:0,duration:0.4},23.6);
+
+// S6 24-30
+tl.fromTo("#s6",{filter:"blur(12px)",scale:0.96,opacity:0},{filter:"blur(0px)",scale:1,opacity:1,duration:0.45},24.0);
+tl.from("#s6-label",{x:-20,opacity:0,duration:0.4},24.2);
+tl.from("#s6-title",{x:-30,opacity:0,duration:0.6,ease:"power3.out"},24.4);
+tl.from("#s6-sub",{x:-20,opacity:0,duration:0.4},24.8);
+tl.from("#s6-pills .pill",{y:10,opacity:0,duration:0.3,stagger:0.04},25.0);
+tl.from("#s6-examples .chat",{x:20,opacity:0,duration:0.5,stagger:0.08,ease:"power3.out"},25.2);
+tl.to("#s6",{filter:"blur(10px)",scale:1.05,opacity:0,duration:0.4},29.6);
+
+// S7 30-35
+tl.fromTo("#s7",{filter:"blur(12px)",scale:0.96,opacity:0},{filter:"blur(0px)",scale:1,opacity:1,duration:0.5,ease:"power2.out"},30.0);
+tl.from("#s7-title",{y:30,opacity:0,duration:0.6,ease:"power3.out"},30.2);
+tl.from("#s7-sub",{y:20,opacity:0,duration:0.5,ease:"power3.out"},30.5);
+tl.from("#s7-code",{y:20,opacity:0,scale:0.97,duration:0.6,ease:"power3.out"},30.8);
+tl.from("#s7-agents .pill",{y:12,opacity:0,duration:0.4,stagger:0.06,ease:"back.out(1.4)"},31.2);
+tl.from("#s7-url",{opacity:0,duration:0.4},31.8);
+
+// progress bar 0-35
+tl.to("#progress",{width:"100%",duration:35,ease:"none"},0);
+
+window.__timelines["presentation"] = tl;
+</script>
+</div>
